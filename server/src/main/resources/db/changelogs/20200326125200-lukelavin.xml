@@ -1,0 +1,28 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet id="20200213175400" author="lukelavin">
+
+        <createTable tableName="user_read_messages_mappings">
+            <column name="user_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="message_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="user_read_messages_mappings"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_user_read_messages_mappings_user_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="user_read_messages_mappings"
+                                 baseColumnNames="message_id"
+                                 constraintName="fk_user_read_messages_mappings_message_id"
+                                 referencedTableName="messages"
+                                 referencedColumnNames="id" />
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,142 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet id="20200213175400" author="lukelavin">
+
+        <createTable tableName="users">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"
+                             nullable="false"
+                             unique="true" />
+            </column>
+            <column name="user_name" type="text">
+                <constraints nullable="false" />
+            </column>
+            <column name="email" type="text" />
+            <column name="password_hash" type="char(64)"/>
+            <column name="profile_pic" type="text">
+                <constraints nullable="true" />
+            </column>
+            <column name="calendar_link" type="text">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+
+        <createTable tableName="messages">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"
+                             unique="true" />
+            </column>
+            <column name="sender_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="timestamp" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="documents">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"
+                             unique="true" />
+            </column>
+            <column name="uploader_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="upload_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="document_link" type="text">
+                    <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="groupings">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"
+                             unique="true" />
+            </column>
+            <column name="name" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creation_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="events">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"
+                             unique="true" />
+            </column>
+            <column name="group_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="varchar(32)"/>
+        </createTable>
+
+        <createTable tableName="user_group_mappings">
+            <column name="user_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="messages"
+                                 baseColumnNames="sender_id"
+                                 constraintName="fk_messages_sender_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="messages"
+                                 baseColumnNames="group_id"
+                                 constraintName="fk_messages_group_id"
+                                 referencedTableName="groupings"
+                                 referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="documents"
+                                 baseColumnNames="uploader_id"
+                                 constraintName="fk_documents_uploader_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="documents"
+                                 baseColumnNames="group_id"
+                                 constraintName="fk_documents_group_id"
+                                 referencedTableName="groupings"
+                                 referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="events"
+                                 baseColumnNames="group_id"
+                                 constraintName="fk_events_group_id"
+                                 referencedTableName="groupings"
+                                 referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="user_group_mappings"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_user_group_mappings_user_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="user_group_mappings"
+                                 baseColumnNames="group_id"
+                                 constraintName="fk_user_group_mappings_group_id"
+                                 referencedTableName="groupings"
+                                 referencedColumnNames="id" />
+
+    </changeSet>
+</databaseChangeLog>

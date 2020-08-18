@@ -1,0 +1,41 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet id="20200409225000" author="razanalkawai">
+
+        <createTable tableName="folders">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"
+                             unique="true" />
+            </column>
+
+            <column name="name" type="text">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="group_id" type="int">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addColumn tableName="documents">
+            <column name="folder_id" type="int">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+
+        <addForeignKeyConstraint baseTableName="folders"
+                                 baseColumnNames="group_id"
+                                 constraintName="fk_groupings_group_id"
+                                 referencedTableName="groupings"
+                                 referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="documents"
+                                 baseColumnNames="folder_id"
+                                 constraintName="fk_documents_folder_id"
+                                 referencedTableName="folders"
+                                 referencedColumnNames="id" />
+
+
+    </changeSet>
+</databaseChangeLog>

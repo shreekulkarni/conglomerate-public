@@ -1,0 +1,27 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+                                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                       xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+<changeSet id="20200419181200" author="razanalkawai">
+    <createTable tableName="user_event_mappings">
+        <column name="user_id" type="int">
+            <constraints nullable="false"/>
+        </column>
+        <column name="event_id" type="int">
+            <constraints nullable="false"/>
+        </column>
+    </createTable>
+
+    <addForeignKeyConstraint baseTableName="user_event_mappings"
+                             baseColumnNames="user_id"
+                             constraintName="fk_user_event_mappings_user_id"
+                             referencedTableName="users"
+                             referencedColumnNames="id" />
+
+    <addForeignKeyConstraint baseTableName="user_event_mappings"
+                             baseColumnNames="event_id"
+                             constraintName="fk_user_event_mappings_event_id"
+                             referencedTableName="events"
+                             referencedColumnNames="id" />
+
+</changeSet>
+</databaseChangeLog>

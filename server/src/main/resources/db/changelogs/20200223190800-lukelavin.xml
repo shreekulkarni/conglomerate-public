@@ -1,0 +1,31 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet id="20200223190800" author="lukelavin">
+
+        <createTable tableName="reset_pins">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"
+                             nullable="false"
+                             unique="true" />
+            </column>
+            <column name="hashed_pin" type="char(64)">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expiration" type="datetime">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+
+        <addForeignKeyConstraint baseTableName="reset_pins"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_reset_pins_user_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id" />
+
+    </changeSet>
+</databaseChangeLog>

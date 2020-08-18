@@ -1,0 +1,27 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet id="20200324145600" author="lukelavin">
+
+        <createTable tableName="devices">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"
+                             unique="true" />
+            </column>
+            <column name="user_id" type="int">
+                <constraints nullable="false" />
+            </column>
+            <column name="device_token" type="text">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="devices"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_devices_user_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id" />
+
+
+    </changeSet>
+</databaseChangeLog>

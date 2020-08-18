@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <include file="db/changelogs/20200213175400-lukelavin.xml" />
+    <include file="db/changelogs/20200223190800-lukelavin.xml" />
+    <include file="db/changelogs/20200225170500-lukelavin.xml" />
+    <include file="db/changelogs/20200227103100-lukelavin.xml" />
+    <include file="db/changelogs/20200227113900-lukelavin.xml" />
+    <include file="db/changelogs/20200227231900-lukelavin.xml" />
+    <include file="db/changelogs/20200324145600-lukelavin.xml" />
+    <include file="db/changelogs/20200326125200-lukelavin.xml" />
+    <include file="db/changelogs/20200326160900-lukelavin.xml" />
+    <include file="db/changelogs/20200327213900-razanalkawai.xml" />
+    <include file="db/changelogs/20200409225000-razanalkawai.xml" />
+    <include file="db/changelogs/20200410134300-lukelavin.xml" />
+    <include file="db/changelogs/20200412103900-lukelavin.xml" />
+    <include file="db/changelogs/20200412165400-lukelavin.xml" />
+    <include file="db/changelogs/20200419181200-razanalkawai.xml" />
+    <include file="db/changelogs/20200420222100-razanalkawai.xml" />
+    <include file="db/changelogs/20200421133800-razanalkawai.xml" />
+    <include file="db/changelogs/20200422131900-lukelavin.xml" />
+</databaseChangeLog>

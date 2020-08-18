@@ -1,0 +1,15 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet id="20200227113900" author="lukelavin">
+
+        <dropColumn tableName="users" columnName="auth_token" />
+
+        <addColumn tableName="users">
+            <column name="auth_token_hash" type="char(64)">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>
