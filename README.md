@@ -12,9 +12,9 @@ Conglomerate is a cross-platform mobile application that aims to optimise group-
 Students (target audience) can create profile using an email id and access profile related features such as choosing and setting a profile picture.
 Upon becoming a user, one can create a new group or join an existing group using a group code or QR code, shared by the owner of the group. Upon becoming a member of a group, users can utilize the following features:
   1. Member's Features:
-    * View the Group's list of events
-    * RSVP to a particular event and view information about the event like date & time, duration and attending/non-attending members
-    * View list of documents shared with the group
+    - View the Group's list of events
+    - RSVP to a particular event and view information about the event like date & time, duration and attending/non-attending members
+    - View list of documents shared with the group
     * Search for a particular document
     * Upload a document on any format
     * Download a document onto their device's storage
