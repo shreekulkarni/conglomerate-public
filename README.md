@@ -12,24 +12,24 @@ Conglomerate is a cross-platform mobile application that aims to optimise group-
 Students (target audience) can create profile using an email id and access profile related features such as choosing and setting a profile picture.
 Upon becoming a user, one can create a new group or join an existing group using a group code or QR code, shared by the owner of the group. Upon becoming a member of a group, users can utilize the following features:
   1. Member's Features:
-    a) View the Group's list of events
-    b) RSVP to a particular event and view information about the event like date & time, duration and attending/non-attending members
-    c) View list of documents shared with the group
-    d) Search for a particular document
-    e) Upload a document on any format
-    f) Download a document onto their device's storage
-    g) In-app messaging to all the members of the group which allows one to send and receive messages along with liking a message
-    h) In-app notifications when a new message is received
-    i) Leave a group
+    * View the Group's list of events
+    * RSVP to a particular event and view information about the event like date & time, duration and attending/non-attending members
+    * View list of documents shared with the group
+    * Search for a particular document
+    * Upload a document on any format
+    * Download a document onto their device's storage
+    * In-app messaging to all the members of the group which allows one to send and receive messages along with liking a message
+    * In-app notifications when a new message is received
+    * Leave a group
     
   2. Group Owner's Features:
      All Group owner's have access to all member related features. Additionally, they can also utilize:
-    a) Share a Group's code/QR code to allow new members to join
-    b) Remove members from a group
-    c) Create new events fro the group
-    d) Upload documents only visible to you i.e. private documents
-    e) Change the viewing restrictions of any document
-    f) Delete a document
+    * Share a Group's code/QR code to allow new members to join
+    * Remove members from a group
+    * Create new events fro the group
+    * Upload documents only visible to you i.e. private documents
+    * Change the viewing restrictions of any document
+    * Delete a document
     
 
 ## About the creators ##
